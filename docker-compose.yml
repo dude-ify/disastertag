@@ -4,10 +4,11 @@ services:
     image: nginx:latest
     container_name: ng01
     ports:
-      - "8000:8000"
+      - "443:8000"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
+      - ./config:/config
       - ./src/static:/static
     depends_on:
       - "web"
