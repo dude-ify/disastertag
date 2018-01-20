@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
-from dtags.models import Dtag
+from dtags.models import Dtag, DtagForm
 
 class Landing:
 	def index(request):
@@ -8,16 +8,14 @@ class Landing:
 
 class Create:
 	def index(request):
-		if request.method == 'GET': # what the fuck is this for?
-			return render(request, 'dtags/create.html')
 		if request.method == 'POST':
 			form = DtagForm(request.POST)
 			if form.is_valid():
 				# Should do some validation here ...
 				dtag_temp = form.save(commit=False)
-			else:
-				form = DtagForm()
-			return render_to_response('dtags/create.html', {'DtagForm': form})
+		else:
+		    form = DtagForm()
+		return render(request, 'dtags/create.html', {'DtagForm': form})
 
 
 
