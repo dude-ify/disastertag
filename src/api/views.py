@@ -10,3 +10,10 @@ class CreateView(generics.ListCreateAPIView):
     def preform_create(self, seralizer):
         """Save the post data when creating a new Dtag"""
         seralizer.save()
+
+
+class DetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """This class handles the http GET, PUT, and DELETE requests"""
+
+    queryset = Dtag.objects.all()
+    serializer_class = DtagSerializer
