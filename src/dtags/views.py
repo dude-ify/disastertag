@@ -8,14 +8,16 @@ class Landing:
 
 class Create:
     def index(request):
-        if request.method == 'GET':
+        if request.method == 'GET': # what the fuck is this for?
             return render(request, 'dtags/create.html')
 
         if request.method == 'POST':
-            form = Dtag(request.POST)
+            #form = Dtag(request.POST)
             # Should do some validation here ...
-            dtag = form.save()
-            return HttpResponseRedirect(reverse('create'))
+            #dtag = form.save()
+            form = DtagForm()
+            #return HttpResponseRedirect(reverse('create'))
+            return render_to_response('dtags/create.html', {'DtagForm': form})
 
 
 class Read:

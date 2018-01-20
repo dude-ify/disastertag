@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 class Dtag(models.Model):
     barcode_id = models.PositiveIntegerField(default=1, unique=True)
@@ -24,3 +25,8 @@ class Dtag(models.Model):
     def __str__(self):
         """Return a human readable rep of the model instance"""
         return "{}".format(self.first_name)
+
+class DtagForm(ModelForm):
+    class Meta:
+        model = Dtag
+        fields = ['first_name', 'last_name', 'notes', 'severity']
