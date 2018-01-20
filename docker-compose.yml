@@ -15,7 +15,7 @@ services:
   web:
     build: .
     container_name: web01
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn dtags.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations dtags && python manage.py migrate && gunicorn dtags.wsgi -b 0.0.0.0:8000"
     depends_on:
       - "db"
     volumes:
