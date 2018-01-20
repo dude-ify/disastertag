@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
-from dtags.models import dtag
+from dtags.models import Dtag
 
 class Landing:
     def index(request):
@@ -12,10 +12,10 @@ class Create:
             return render(request, 'dtags/create.html')
 
         if request.method == 'POST':
-            #form = Dtag(request.POST)
+            form = DtagForm(request.POST)
             # Should do some validation here ...
             #dtag = form.save()
-            form = DtagForm()
+            #form = DtagForm()
             #return HttpResponseRedirect(reverse('create'))
             return render_to_response('dtags/create.html', {'DtagForm': form})
 
