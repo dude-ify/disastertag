@@ -1,3 +1,5 @@
 .*.swp
 **/*.pyc
 .gitconfig
+config/*.key
+config/*.crt
