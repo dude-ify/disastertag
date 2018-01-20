@@ -1,7 +1,7 @@
 from django.db import models
 
 class Dtag(models.Model):
-    barcode = models.PositiveIntegerField(default=1, unique=True)
+    barcode_id = models.PositiveIntegerField(default=1, unique=True)
     first_name = models.CharField(max_length=225, blank=True)
     last_name = models.CharField(max_length=225, blank=True)
     notes = models.TextField(blank=True)
@@ -23,4 +23,4 @@ class Dtag(models.Model):
 
     def __str__(self):
         """Return a human readable rep of the model instance"""
-        return "{}".format(self.name)
+        return "{}".format(self.first_name)

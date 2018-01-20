@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.Landing.index, name='index'),
     path('add/', views.Create.index, name='create'),
     path('read/', views.Read.index, name='read'),
-    path('read/<int:patient_id>/', views.Read.info)
+    path('read/<int:patient_id>/', views.Read.info, name='info')
 ]
