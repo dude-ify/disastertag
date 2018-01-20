@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   nginx:
     image: nginx:latest
@@ -9,13 +9,14 @@ services:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
-      - web
+      - "web"
+
   web:
     build: .
     container_name: web01
     command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn dtags.wsgi -b 0.0.0.0:8000"
     depends_on:
-      - db
+      - "db"
     volumes:
       - ./src:/src
     expose:
