@@ -24,5 +24,5 @@ urlpatterns = [
     path('add/', views.Create.index, name='create'),
     path('read/', views.Read.index, name='read'),
     path('read/<int:patient_id>/', views.Read.info, name='info'),
-    path('/delete/<int:patient_id>/', views.DtagDelete.as_view(), name='dtag_del'),
+    path('delete/<int:patient_id>/', views.Read.delete, name='del'),
 ]

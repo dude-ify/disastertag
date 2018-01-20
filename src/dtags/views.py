@@ -1,4 +1,5 @@
 from django.http import Http404, HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 from dtags.models import Dtag, DtagForm
 from django.views.generic import DeleteView
@@ -34,8 +35,3 @@ class Read:
 
 	def delete(request, patient_id):
 		Dtag.objects.get(pk=patient_id).delete()
-
-
-class DtagDelete:
-	model = Dtag
-	success_url = reverse_lazy('Dtag.views.all_posts')
