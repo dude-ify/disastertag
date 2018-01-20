@@ -2,7 +2,7 @@
 <h1>List of Patients</h1>
 <ul>
 	{% for patient in patients %}
-		<li>{{ patient.barcode }}: ({{ patient.severity }}) {{ patient.last_name }}, {{ patient.first_name }}</a></li>
+		<li>{{ patient.barcode_id }}: ({{ patient.severity }}) {{ patient.last_name }}, {{ patient.first_name }}</a></li>
 	{% endfor %}
 </ul>
 {% endblock %}

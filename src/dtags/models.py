@@ -6,8 +6,8 @@ class Dtag(models.Model):
     first_name = models.CharField(max_length=225, blank=True)
     last_name = models.CharField(max_length=225, blank=True)
     notes = models.TextField(blank=True)
-    loc_lat = models.FloatField(blank=False)
-    loc_lon = models.FloatField(blank=False)
+    loc_lat = models.FloatField(default=0, blank=False)
+    loc_lon = models.FloatField(default=0, blank=False)
     SEVERITY_CHOICES = (
             ('SR', 'Severe'),
             ('MO', 'Moderate'),
