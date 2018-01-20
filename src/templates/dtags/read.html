@@ -2,7 +2,12 @@
 <h1>List of Patients</h1>
 <ul>
 	{% for patient in patients %}
-		<li><p>{{ patient.barcode_id }}: ({{ patient.severity }}) {{ patient.last_name }}, {{ patient.first_name }}</p><a href="{% path 'del' %}">delete</a> </li>
+		<li><p>{{ patient.barcode_id }}: ({{ patient.severity }}) {{ patient.last_name }}, {{ patient.first_name }}</p></li>
+		<li> <form action="{% url 'del_item' patient.barcode_id %}" method="post">
+			{% csrf_token %}
+			<input type="submit" value="Delete" />
+		</form>
+		</li>
 	{% endfor %}
 </ul>
 {% endblock %}

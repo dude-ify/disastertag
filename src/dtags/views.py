@@ -1,8 +1,9 @@
 from django.http import Http404, HttpResponseRedirect
-from django.urls import reverse
-from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
+from django.shortcuts import render, get_object_or_404
 from dtags.models import Dtag, DtagForm
 from django.views.generic import DeleteView
+#from django.core.exceptions import PermissionDenied
 
 class Landing:
 	def index(request):
@@ -17,7 +18,7 @@ class Create:
 				form.save()
 				return HttpResponseRedirect(reverse('read'))
 		else:
-		    form = DtagForm()
+			form = DtagForm()
 		return render(request, 'dtags/create.html', {'DtagForm': form})
 
 
@@ -33,5 +34,23 @@ class Read:
 		cxt = {"patient": patient}
 		return render(request, 'dtags/patient_info.html', cxt)
 
-	def delete(request, patient_id):
-		Dtag.objects.get(pk=patient_id).delete()
+
+#class PermissionMixin(object):
+#	def get_object(self, *args, **kwargs):
+#		obj = super(PermissionMixin, self).get_object(*args, **kwargs)
+#		if not obj.created_by == self.request.user:
+#			raise PermissionDenied()
+#		else:
+#			return obj
+
+
+class DtagDelete(DeleteView):
+	model = Dtag
+	success_url = reverse_lazy('read')
+
+#	def get_success_url(self):
+#		return reverse('read')
+#
+#	def delete(self, request, patient_id):
+#		Dtag.objects.filter(pk=patient_id).delete()
+#		return HttpResponseRedirect(reverse('read'))
