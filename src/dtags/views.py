@@ -30,7 +30,7 @@ class Read:
 		return render(request, 'dtags/read.html', cxt)
 
 	def info(request, patient_id):
-		patient = get_object_or_404(barcode_id=patient_id)
+		patient = get_object_or_404(Dtag, barcode_id=patient_id)
 		cxt = {"patient": patient}
 		return render(request, 'dtags/patient_info.html', cxt)
 
