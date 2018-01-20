@@ -12,7 +12,7 @@ class Create:
 			form = DtagForm(request.POST)
 			if form.is_valid():
 				# Should do some validation here ...
-				dtag_temp = form.save(commit=False)
+				form.save()
 		else:
 		    form = DtagForm()
 		return render(request, 'dtags/create.html', {'DtagForm': form})
