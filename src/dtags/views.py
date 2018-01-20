@@ -1,6 +1,7 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from dtags.models import Dtag, DtagForm
+from django.views.generic import DeleteView
 
 class Landing:
 	def index(request):
@@ -13,6 +14,7 @@ class Create:
 			if form.is_valid():
 				# Should do some validation here ...
 				form.save()
+				return HttpResponseRedirect(reverse('read'))
 		else:
 		    form = DtagForm()
 		return render(request, 'dtags/create.html', {'DtagForm': form})
@@ -30,3 +32,10 @@ class Read:
 		cxt = {"patient": patient}
 		return render(request, 'dtags/patient_info.html', cxt)
 
+	def delete(request, patient_id):
+		Dtag.objects.get(pk=patient_id).delete()
+
+
+class DtagDelete:
+	model = Dtag
+	success_url = reverse_lazy('Dtag.views.all_posts')

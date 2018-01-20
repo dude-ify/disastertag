@@ -1,8 +1,6 @@
 {% block body %}
 <ul>
-	{% for patient in patients %}
-		<h1>{{ patient_id }}</h1>
-	{% endfor %}
-
+		<h3>{{ patient.last_name }}, {{ patient.first_name }}</h3>
+		<h4>{{ patient_id }}</h4>
 </ul>
 {% endblock %}
