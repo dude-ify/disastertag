@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from . import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    #path('<int:patient_id>/details', views.DetailsView.as_view(), name='details'),
+    path('/create', views.CreateView.as_view(), name='create'),
 ]
