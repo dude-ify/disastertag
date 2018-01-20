@@ -7,3 +7,7 @@ down:
 	docker-compose down
 bash:
 	docker-compose run web bash
+build:
+	docker-compose build
+static:
+	docker run web /bin/sh -c "python manage.py collectstatic --noinput"  

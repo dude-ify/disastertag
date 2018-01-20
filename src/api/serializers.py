@@ -1,7 +1,7 @@
-from rest_framework import seralizers
+from rest_framework import serializers
 from .models import Dtag
 
-class DtagSerializer(seralizers.ModelSerializer):
+class DtagSerializer(serializers.ModelSerializer):
     """Serializer to map Model instance into JSON format"""
 
     class Meta:
