@@ -1,1 +1,8 @@
-<h1>{{ patient_id }}</h1>
+{% block body %}
+<ul>
+	{% for patient in patients %}
+		<h1>{{ patient_id }}</h1>
+	{% endfor %}
+
+</ul>
+{% endblock %}
