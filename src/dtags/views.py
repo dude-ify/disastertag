@@ -1,23 +1,18 @@
-#from seralizer import DtagSerializer
-#from models import Dtag
 from django.shortcuts import render
-from django.views import generic
 
-class IndexView(generic.DetailView):
-    template_name = 'dtags/index.html'
+class Landing:
+    def index(request):
+        return render(request, 'dtags/index.html')
 
+class Create:
+    def index(request):
+        return render(request, 'dtags/create.html')
 
-class CreateView(generic.DetailView):
-    #queryset = Dtag.objects.all()
-    #serializer_class = DtagSerializer
-    template_name = 'dtags/create.html'
+class Read:
+    def index(request):
+        return render(request, 'dtags/read.html')
 
-    #def preform_create(self, seralizer):
-    #    """Save the post data when creating a new Dtag"""
-    #    seralizer.save()
+    def info(request, patient_id):
+        cxt = {"patient_id": patient_id}
+        return render(request, 'dtags/patient_info.html', cxt)
 
-
-class DetailsView(generic.DetailView):
-    #queryset = Dtag.objects.all()
-    #serializer_class = DtagSerializer
-    template_name = 'dtags/details.html'
