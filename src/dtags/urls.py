@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from . import views
 
@@ -26,3 +27,5 @@ urlpatterns = [
     path('read/<int:patient_id>/', views.Read.info, name='info'),
     path('delete/<int:patient_id>/', views.Read.delete, name='del'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

@@ -1,29 +1,8 @@
-<script type="text/javascript">
-Quagga.init({
-    inputStream : {
-      name : "Live",
-      type : "LiveStream",
-      target: document.querySelector('#scaner')    // Or '#yourElement' (optional)
-    },
-    decoder : {
-      readers : ["code_128_reader"]
-    }
-  }, function(err) {
-      if (err) {
-          console.log(err);
-          return
-      }
-      console.log("Initialization finished. Ready to start");
-      Quagga.start();
-});
+{% load static %}
+<script type="text/javascript" src="{% static 'instascan.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'add.js' %}"></script>
 
-Quagga.onDetected(data)
-
-bcode = dockument.getElementById('bcode')
-bcode.innerHTML = data.codeResult.code
-</script>
-<p id="bcode"></p>
-<div id="scanner"></div>
+<video id="preview"></video>
 <h1>Register a Patient</h1>
 	<form method="post" action="">
 	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">

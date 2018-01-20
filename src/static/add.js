@@ -1,22 +1,18 @@
-Quagga.init({
-    inputStream : {
-      name : "Live",
-      type : "LiveStream",
-      target: document.querySelector('#scaner')    // Or '#yourElement' (optional)
-    },
-    decoder : {
-      readers : ["code_128_reader"]
-    }
-  }, function(err) {
-      if (err) {
-          console.log(err);
-          return
-      }
-      console.log("Initialization finished. Ready to start");
-      Quagga.start();
+let scanner = new Instascan.Scanner({ video: document.getElementById('preview')  });
+scanner.addListener('scan', function (content) {
+	        console.log(content);
+	      
 });
-
-Quagga.onDetected(data)
-
-bcode = dockument.getElementById('bcode')
-bcode.innerHTML = data.codeResult.code
+Instascan.Camera.getCameras().then(function (cameras) {
+	if (cameras.length > 0) {
+		          scanner.start(cameras[0]);
+		        
+	} else {
+		          console.error('No cameras found.');
+		        
+	}
+	      
+}).catch(function (e) {
+	        console.error(e);
+	      
+});

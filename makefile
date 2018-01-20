@@ -10,5 +10,5 @@ bash:
 build:
 	docker-compose build
 static: FORCE
-	docker-compose run web /bin/sh -c "python manage.py collectstatic --noinput"  
+	docker-compose run web /bin/sh -c "python manage.py collectstatic --no-input"  
 FORCE:
