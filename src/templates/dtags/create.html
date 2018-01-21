@@ -9,18 +9,16 @@
 	<script type="text/javascript" src="{% static 'js/geolocation.js' %}"></script>
 </head>
 
+<br>
 <div class="container w-80">
+	
 	<h1>Register a Patient</h1>
-
+	<br>
 	<div id="out"></div>	
 	<script type="text/javascript">geoFindMe()</script>
 
 	<form method="post" novalidate>
 		{% csrf_token %}
-
-		{% for hidden_field in DtagForm.hidden_fields %}
-			{{ hidden_field }}
-		{% endfor %}
 
 		{% for field in DtagForm.visible_fields %}
 			<div class="form-group">

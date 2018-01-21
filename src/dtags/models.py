@@ -1,7 +1,7 @@
 from django.db import models
 
 class Dtag(models.Model):
-	barcode_id = models.PositiveIntegerField(default=1, unique=True)
+	barcode_id = models.AutoField(primary_key=True)
 	first_name = models.CharField(max_length=225, blank=True)
 	last_name = models.CharField(max_length=225, blank=True)
 	notes = models.TextField(blank=True)

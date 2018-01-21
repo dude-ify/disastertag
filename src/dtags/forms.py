@@ -5,7 +5,7 @@ from django.forms.widgets import HiddenInput
 class DtagForm(ModelForm):
 	class Meta:
 		model = Dtag
-		fields = ['barcode_id', 'loc_lon', 'loc_lat', 'first_name', 'last_name', 'notes', 'severity']
+		fields = ['loc_lon', 'loc_lat', 'first_name', 'last_name', 'notes', 'severity']
 		
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
