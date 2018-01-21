@@ -9,26 +9,26 @@
 </head>
 
 <h1>Register a Patient</h1>
-	
-	<div id="out"></div>	
-	<script type="text/javascript">geoFindMe()</script>
-	
-	<form method="post" action="{{ DtagForm }}">
-		<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-		{% for hidden_field in form.hidden_fields %}
-	    	{{ hidden_field }}
-	  	{% endfor %}
+<div id="out"></div>	
+<script type="text/javascript">geoFindMe()</script>
 
-	  	{% for field in form.visible_fields %}
-	  		<div class="form-group">
-	  			{{ field.label_tag }}
-	      		{{ field }}
-	      		{% if field.help_text %}
-	        		<small class="form-text text-muted">{{ field.help_text }}</small>
-	      		{% endif %}
-	      	</div>
-	  	{% endfor %}
+<form method="post" action="{{ DtagForm }}">
+	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-		<input type="submit" class="btn btn-primary" value="Submit Patient Data"/>
-	</form>
+	{% for hidden_field in form.hidden_fields %}
+    	{{ hidden_field }}
+  	{% endfor %}
+
+  	{% for field in form.visible_fields %}
+  		<div class="form-group">
+  			{{ field.label_tag }}
+      		{{ field }}
+      		{% if field.help_text %}
+        		<small class="form-text text-muted">{{ field.help_text }}</small>
+      		{% endif %}
+      	</div>
+  	{% endfor %}
+
+	<input type="submit" class="btn btn-primary" value="Submit Patient Data"/>
+</form>
