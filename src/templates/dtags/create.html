@@ -9,28 +9,29 @@
 	<script type="text/javascript" src="{% static 'js/geolocation.js' %}"></script>
 </head>
 
-<h1>Register a Patient</h1>
+<div class="container w-80">
+	<h1>Register a Patient</h1>
 
-<div id="out"></div>	
-<script type="text/javascript">geoFindMe()</script>
+	<div id="out"></div>	
+	<script type="text/javascript">geoFindMe()</script>
 
-<form method="post" novalidate>
-	{% csrf_token %}
+	<form method="post" novalidate>
+		{% csrf_token %}
 
-	{% for hidden_field in DtagForm.hidden_fields %}
-		{{ hidden_field }}
-	{% endfor %}
+		{% for hidden_field in DtagForm.hidden_fields %}
+			{{ hidden_field }}
+		{% endfor %}
 
-	{% for field in DtagForm.visible_fields %}
-		<div class="form-group">
-		{{ field.label_tag }}
-		<label for="{{ field.id_for_label }}">{{ field.label }}</label>
-		{{ field|add_class:'form-control' }}
-			{% if field.help_text %}
-				<small class="form-text text-muted">{{ field.help_text }}</small>
-			{% endif %}
-		</div>
-	{% endfor %}
+		{% for field in DtagForm.visible_fields %}
+			<div class="form-group">
+			<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+			{{ field|add_class:'form-control' }}
+				{% if field.help_text %}
+					<small class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
+			</div>
+		{% endfor %}
 
-	<input type="submit" class="btn btn-primary" value="Submit Patient Data"/>
-</form>
+		<input type="submit" class="btn btn-primary" value="Submit Patient Data"/>
+	</form>
+</div>
