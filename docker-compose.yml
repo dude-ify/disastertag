@@ -4,7 +4,7 @@ services:
     image: nginx:latest
     container_name: ng01
     ports:
-      - "443:8000"
+      - "443:443"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
@@ -16,7 +16,7 @@ services:
   web:
     build: .
     container_name: web01
-    command: bash -c "python manage.py makemigrations dtags && python manage.py migrate && gunicorn dtags.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations dtags && python manage.py migrate && gunicorn dtags.wsgi -b 0.0.0.0:443"
     depends_on:
       - "db"
     volumes:
