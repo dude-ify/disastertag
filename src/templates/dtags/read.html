@@ -7,14 +7,21 @@
 
 {% block body %}
 <h1>List of Patients</h1>
-<ul>
+<table style="width: 100%">
+	<tr>
+		<th> ID </th>
+		<th> Name </th>
+		<th> Severity </th>
+		<th> Delete Record? </th>
+	</tr>
 	{% for patient in patients %}
-		<li><p>{{ patient.barcode_id }}: ({{ patient.severity }}) <a href="{% url 'info' patient.barcode_id %}">{{ patient.last_name }}, {{ patient.first_name }}</a></p></li>
-		<li> <form action="{% url 'del_item' patient.barcode_id %}" method="post">
-			{% csrf_token %}
-			<input type="submit" value="Delete" />
+		<tr>
+			<td> {{ patient.barcode_id }} </td> 
+			<td> <a href="{% url 'info' patient.barcode_id %}">{{ patient.last_name }}, {{ patient.first_name }}</a> </td>
+			<td> {{ patient.severity }} </td>
+			<td> <form action="{% url 'del_item' patient.barcode_id %}" method="post"> <input type="submit" value="Delete" /> {% csrf_token %} </form>
 		</form>
-		</li>
+		</tr>
 	{% endfor %}
-</ul>
+</table>>
 {% endblock %}

@@ -7,6 +7,8 @@
 
 {% block body %}
 
+<h1> Patient Information Page </h1>
+
 <h2>{{ patient.last_name }}, {{ patient.first_name }}</h2>
 
 <ul>
@@ -14,9 +16,5 @@
 		<li><b>Latitude:</b> {{ patient.loc_lat }}, <b>Longitude:</b> {{ patient.loc_lon }}</li>
 		<li><b>Notes:</b> {{ patient.notes }}</li>
 </ul>
-
-{% for i in img %}
-    <img src="{{ i.image.url }}" width="500px"/>
-{% endfor %}
 
 {% endblock %}

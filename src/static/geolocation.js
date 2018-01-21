@@ -1,7 +1,5 @@
 function geoFindMe() {
 	var output = document.getElementById("out");
-	//var html_lon = document.getElementById("lon");
-	//var html_lat = document.getElementById("lat");
 
 	if (!navigator.geolocation){
 		output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
