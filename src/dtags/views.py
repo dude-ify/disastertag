@@ -1,7 +1,8 @@
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render, get_object_or_404
-from dtags.models import Dtag, DtagForm
+from dtags.models import Dtag
+from dtags.forms import DtagForm
 from django.views.generic import DeleteView
 
 class Landing:
