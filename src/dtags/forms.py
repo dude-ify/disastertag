@@ -9,7 +9,5 @@ class DtagForm(ModelForm):
 		
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
-		self.fields['loc_lat'].widget = HiddenInput()
-		self.fields['loc_lat'].widget.attrs.update({'id': 'lat'})
-		self.fields['loc_lon'].widget = HiddenInput()
-		self.fields['loc_lon'].widget.attrs.update({'id': 'lon'})
+		self.fields['loc_lat'].widget.attrs.update({'id': 'lat', 'readonly': True})
+		self.fields['loc_lon'].widget.attrs.update({'id': 'lon', 'readonly': True})

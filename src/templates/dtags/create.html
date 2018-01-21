@@ -20,6 +20,10 @@
 	<form method="post" novalidate>
 		{% csrf_token %}
 
+		{% for field in DtagForm.hidden_fields %}
+			{{ hidden_field }}
+		{% endfor %}
+
 		{% for field in DtagForm.visible_fields %}
 			<div class="form-group">
 			<label for="{{ field.id_for_label }}">{{ field.label }}</label>

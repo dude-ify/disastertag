@@ -7,9 +7,10 @@ function geoFindMe() {
 	}
 
 	function success(position) {
+		output.innerHTML = "<p>In the function!!</p>";
 		var latitude  = position.coords.latitude;
 		var longitude = position.coords.longitude;
-		//output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+		//output.innerHTML = '<p>Latitude is ' + latitude + '° , Longitude is ' + longitude + '°</p>';
 		document.getElementById("lon").value = Number(longitude);
 		document.getElementById("lat").value = Number(latitude);
 		output.innerHTML = "<p>Location Stored!</p>";

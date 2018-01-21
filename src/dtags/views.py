@@ -12,7 +12,7 @@ class Landing:
 class Create:
 	def index(request):
 		if request.method == 'POST':
-			form = DtagForm(request.POST, request.FILES)
+			form = DtagForm(request.POST)
 			if form.is_valid():
 				# Should do some validation here ...
 				form.save()
