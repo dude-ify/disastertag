@@ -9,6 +9,7 @@ class Dtag(models.Model):
     notes = models.TextField(blank=True)
     loc_lat = models.FloatField(default=0, blank=False)
     loc_lon = models.FloatField(default=0, blank=False)
+    image = models.ImageField(upload_to='static/img/{{ barcode_id }}/', default='static/img/default.jpeg')
     SEVERITY_CHOICES = (
             ('SR', 'Severe'),
             ('MO', 'Moderate'),
@@ -30,7 +31,7 @@ class Dtag(models.Model):
 class DtagForm(ModelForm):
     class Meta:
         model = Dtag
-        fields = ['loc_lon', 'loc_lat', 'first_name', 'last_name', 'notes', 'severity']
+        fields = ['loc_lon', 'loc_lat', 'first_name', 'last_name', 'notes', 'severity', 'image']
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

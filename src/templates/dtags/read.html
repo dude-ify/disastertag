@@ -1,8 +1,15 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <title>Simple is Better Than Complex</title>
+</head>
+
 {% block body %}
 <h1>List of Patients</h1>
 <ul>
 	{% for patient in patients %}
-		<li><p>{{ patient.barcode_id }}: ({{ patient.severity }}) {{ patient.last_name }}, {{ patient.first_name }}</p></li>
+		<li><p>{{ patient.barcode_id }}: ({{ patient.severity }}) <a href="{% url 'info' patient.barcode_id %}">{{ patient.last_name }}, {{ patient.first_name }}</a></p></li>
 		<li> <form action="{% url 'del_item' patient.barcode_id %}" method="post">
 			{% csrf_token %}
 			<input type="submit" value="Delete" />

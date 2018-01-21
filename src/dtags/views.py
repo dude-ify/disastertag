@@ -11,7 +11,7 @@ class Landing:
 class Create:
 	def index(request):
 		if request.method == 'POST':
-			form = DtagForm(request.POST)
+			form = DtagForm(request.POST, request.FILES)
 			if form.is_valid():
 				# Should do some validation here ...
 				form.save()
@@ -19,7 +19,6 @@ class Create:
 		else:
 			form = DtagForm()
 		return render(request, 'dtags/create.html', {'DtagForm': form})
-
 
 
 class Read:
