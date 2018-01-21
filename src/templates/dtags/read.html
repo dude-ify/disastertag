@@ -17,12 +17,12 @@
 			<tr> <th> ID </th> <th> Name </th> <th> Severity </th> <th></th>
 			</thead>
 			</tr>
-			{% if patients > 0 %} {% for patient in patients %}
+			{% if patients != 0 %} {% for patient in patients %}
 				<tr>
 					<td> {{ patient.barcode_id }} </td> 
 					<td> <a href="{% url 'info' patient.barcode_id %}">{{ patient.last_name }}, {{ patient.first_name }}</a> </td>
 					<td> {{ patient.severity }} </td>
-					<td> <form action="{% url 'del_item' patient.barcode_id %}" method="post"> <input type="submit" class="btn-danger" value="Delete" /> {% csrf_token %} </form></td>
+					<td> <form action="{% url 'del_item' patient.barcode_id %}" method="post"> <input type="submit" class="btn-success" value="Treated" /> {% csrf_token %} </form></td>
 				</tr>
 			{% endfor %} {% endif %}
 		</table>

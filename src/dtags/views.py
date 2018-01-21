@@ -24,7 +24,7 @@ class Create:
 
 class Read:
 	def index(request):
-		all_patients = Dtag.objects.order_by('severity', '-date_created')
+		all_patients = Dtag.objects.order_by('-severity', '-date_created')
 		cxt = {"patients": all_patients}
 		return render(request, 'dtags/read.html', cxt)
 
