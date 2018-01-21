@@ -36,4 +36,4 @@ class Read:
 
 class DtagDelete(DeleteView):
 	model = Dtag
-	success_url = reverse('read')
+	success_url = reverse_lazy('read')
