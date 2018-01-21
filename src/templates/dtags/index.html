@@ -1,1 +1,45 @@
-<h1>Home?</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+{% block body %}
+<div class="container">
+
+	<div class="col-xs-12" style="height:50px;"></div>
+
+	<div class="row text-center">
+		<div class="col-sm-12"> 
+			<h1>Disaster Tag</h1>
+		</div>
+	</div>
+
+	<div class="col-xs-12" style="height:50px;"></div>
+
+	<div class="row text-center">
+		<div class="col-sm-12"> 
+			<h5>Scalable disaster data collection and managment</h3>
+		</div>
+	</div>
+
+	<div class="col-xs-12" style="height:50px;"></div>
+
+	<div class="row">
+			<div class="col text-center">	
+			<a href={{ 'add'  }}>
+				<span><p><button class="btn btn-info btn-block">
+					 health administrator 
+					</p></button></span>
+			</a>
+			</div>
+			<div class="col text-center">	
+			<a href={{ 'add'  }}>
+				<span ><p><button style="color:white" class="btn btn-warning btn-block">
+						First Responder
+					</p></button></span>
+			</a>
+			</div>
+		</a>
+	</div>
+</div>
+{% endblock %}
