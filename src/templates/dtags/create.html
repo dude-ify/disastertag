@@ -1,9 +1,19 @@
 {% load static %}
-<script type="text/javascript" src="{% static 'instascan.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'add.js' %}"></script>
 
-<video id="pview"></video>
+<head>
+	<script type="text/javascript" src="{% static 'geolocation.js' %}"></script>
+</head>
+
+<script type="text/javascript" src="{% static 'instascan.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'add.js' %}"></script>
+
 <h1>Register a Patient</h1>
+
+	<video id="pview"></video>
+	
+	<div id="out"></div>	
+	<script type="text/javascript">geoFindMe()</script>
+	
 	<form method="post" action="">
 	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 	<table>

@@ -1,6 +1,11 @@
 {% block body %}
+
+<h2>{{ patient.last_name }}, {{ patient.first_name }}</h2>
+
 <ul>
-		<h3>{{ patient.last_name }}, {{ patient.first_name }}</h3>
-		<h4>{{ patient_id }}</h4>
+		<li><b>ID:</b> {{ patient.barcode_id }}</li>
+		<li><b>Latitude:</b> {{ patient.loc_lat }}, <b>Longitude:</b> {{ patient.loc_lon }}</li>
+		<li><b>Notes:</b> {{ patient.notes }}</li>
 </ul>
+
 {% endblock %}
